@@ -43,7 +43,7 @@
 	await remote.push(["refs/heads/develop:refs/heads/develop"], {
 		callbacks: {
 			credentials: () => {
-				return Cred.sshKeyNew(login, pass);
+				return Cred.sshKeyFromAgent(login, token);
 			}
 		}
 	});
