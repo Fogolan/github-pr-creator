@@ -1,5 +1,4 @@
 (async function() {
-	const { Repository, Reference, Signature, Cred } = require("nodegit");
 	const config = require("config");
 
 	const {
@@ -11,9 +10,10 @@
 		pullRequest: { title, body, head, base }
 	} = config;
 
+	const { Repository, Reference, Signature, Cred } = require("nodegit");
 	const client = require("octonode").client(token);
 
-	const ghrepo = client.repo("tallerstk97/github-pr-creator");
+	const ghrepo = client.repo("Fogolan/github-pr-creator");
 
 	const repository = await Repository.open("./");
 	const index = await repository.index();
