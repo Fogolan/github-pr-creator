@@ -43,7 +43,7 @@
 		callbacks: {
 			certificateCheck: () => 1,
 			credentials: () => {
-				return Cred.userpassPlaintextNew(login, pass);
+				return Cred.sshKeyNew(login, token);
 			}
 		}
 	});
