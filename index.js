@@ -42,7 +42,10 @@
 
 	await remote.push(["refs/heads/develop:refs/heads/develop"], {
 		callbacks: {
-			credentials: () => {
+			certificateCheck: () => 1,
+			credentials: (url, userName) => {
+				console.log(`getting creds for url:${url} username:${userName}`);
+
 				return Cred.sshKeyFromAgent(login, token);
 			}
 		}
