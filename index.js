@@ -37,7 +37,8 @@
 		[parent]
 	);
 
-	const remote = await repository.getRemote(remoteName);
+    const remote = await repository.getRemote(remoteName);
+    console.log(token)
 
 	await remote.push(["refs/heads/develop:refs/heads/develop"], {
 		callbacks: {
