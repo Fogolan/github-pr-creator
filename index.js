@@ -45,7 +45,8 @@
 				return Cred.userpassPlaintextNew(token, "x-oauth-basic");
 			}
 		}
-	});
+    });
+    
 
 	ghrepo.pr(
 		{
