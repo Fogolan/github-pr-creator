@@ -37,16 +37,16 @@
 		[parent]
 	);
 
-    const remote = await repository.getRemote(remoteName);
+	const remote = await repository.getRemote(remoteName);
 
 	await remote.push(["refs/heads/develop:refs/heads/develop"], {
 		callbacks: {
+			certificateCheck: () => 1,
 			credentials: () => {
 				return Cred.userpassPlaintextNew(token, "x-oauth-basic");
 			}
 		}
-    });
-    
+	});
 
 	ghrepo.pr(
 		{
