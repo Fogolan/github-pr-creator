@@ -46,7 +46,7 @@
 			credentials: (url, userName) => {
 				console.log(`getting creds for url:${url} username:${userName}`);
 
-				return Cred.sshKeyFromAgent(userName, token);
+				return Cred.userpassPlaintextNew(userName, token);
 			}
 		}
 	});
