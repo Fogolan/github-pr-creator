@@ -1,5 +1,4 @@
 (async function() {
-	//DEMO
 	const config = require("config");
 
 	const {
