@@ -37,12 +37,11 @@
 		[parent]
 	);
 
-	
+
 	const remote = await repository.getRemote(remoteName);
 
 	await remote.push(["refs/heads/develop:refs/heads/develop"], {
 		callbacks: {
-			certificateCheck: () => 1,
 			credentials: () => {
 				return Cred.sshKeyNew(login, token);
 			}
