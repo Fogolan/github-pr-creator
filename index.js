@@ -4,10 +4,10 @@
 	const {
 		name,
 		email,
-		token,
 		commitMessage,
 		remoteName,
-		pullRequest: { title, body, head, base }
+		pullRequest: { title, body, head, base },
+		github: { login, pass, token }
 	} = config;
 
 	const { Repository, Reference, Signature, Cred } = require("nodegit");
@@ -43,7 +43,7 @@
 		callbacks: {
 			certificateCheck: () => 1,
 			credentials: () => {
-				return Cred.userpassPlaintextNew(token, "x-oauth-basic");
+				return Cred.userpassPlaintextNew(login, pass);
 			}
 		}
 	});
