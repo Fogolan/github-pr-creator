@@ -1,0 +1,17 @@
+{
+  "name": "github-pr-creator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pavel Karpovich <pavel.karpovich@outlook.com> (https://github.com/tallerstk97)",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.0.0",
+    "node-config": "0.0.2",
+    "nodegit": "^0.23.0",
+    "octonode": "^0.9.5"
+  }
+}
