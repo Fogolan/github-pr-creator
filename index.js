@@ -1,19 +1,19 @@
 (async function() {
-	const { Repository, Reference, Signature, Cred } = require("nodegit");
 	const config = require("config");
 
 	const {
 		name,
 		email,
-		token,
 		commitMessage,
 		remoteName,
-		pullRequest: { title, body, head, base }
+		pullRequest: { title, body, head, base },
+		github: { login, pass, token }
 	} = config;
 
+	const { Repository, Reference, Signature, Cred } = require("nodegit");
 	const client = require("octonode").client(token);
 
-	const ghrepo = client.repo("tallerstk97/github-pr-creator");
+	const ghrepo = client.repo("Fogolan/github-pr-creator");
 
 	const repository = await Repository.open("./");
 	const index = await repository.index();
@@ -37,12 +37,16 @@
 		[parent]
 	);
 
+
 	const remote = await repository.getRemote(remoteName);
 
 	await remote.push(["refs/heads/develop:refs/heads/develop"], {
 		callbacks: {
-			credentials: () => {
-				return Cred.userpassPlaintextNew(token, "x-oauth-basic");
+			certificateCheck: () => 1,
+			credentials: (url, userName) => {
+				console.log(`getting creds for url:${url} username:${userName}`);
+
+				return Cred.userpassPlaintextNew(login, pass);
 			}
 		}
 	});
