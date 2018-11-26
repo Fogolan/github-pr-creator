@@ -1,4 +1,5 @@
 (async function() {
+	//DEMO
 	const config = require("config");
 
 	const {
@@ -36,7 +37,6 @@
 		oid,
 		[parent]
 	);
-
 
 	const remote = await repository.getRemote(remoteName);
 
